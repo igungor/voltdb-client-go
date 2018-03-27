@@ -21,7 +21,7 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/VoltDB/voltdb-client-go/wire"
+	"github.com/igungor/voltdb-client-go/wire"
 )
 
 const invalidRowIndex = -1

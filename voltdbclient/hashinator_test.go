@@ -7,7 +7,7 @@ import (
 	r "math/rand"
 	"testing"
 
-	"github.com/VoltDB/voltdb-client-go/wire"
+	"github.com/igungor/voltdb-client-go/wire"
 )
 
 func BenchmarkHashinater_getHashedPartitionForParameter_int32(b *testing.B) {

@@ -18,7 +18,7 @@
 package voltdbclient
 
 import (
-	"github.com/VoltDB/voltdb-client-go/wire"
+	"github.com/igungor/voltdb-client-go/wire"
 )
 
 func EncodePI(e *wire.Encoder, pi *procedureInvocation) error {

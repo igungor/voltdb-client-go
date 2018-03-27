@@ -30,7 +30,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/VoltDB/voltdb-client-go/voltdbclient"
+	"github.com/igungor/voltdb-client-go/voltdbclient"
 )
 
 // horizontalRule is handy to use, rather than typing this out several times

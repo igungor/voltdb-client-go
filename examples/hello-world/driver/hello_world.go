@@ -23,7 +23,7 @@ import (
 	"fmt"
 	"log"
 
-	_ "github.com/VoltDB/voltdb-client-go/voltdbclient"
+	_ "github.com/igungor/voltdb-client-go/voltdbclient"
 )
 
 func main() {

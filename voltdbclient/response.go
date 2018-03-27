@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/VoltDB/voltdb-client-go/wire"
+	"github.com/igungor/voltdb-client-go/wire"
 )
 
 type voltResponse interface {

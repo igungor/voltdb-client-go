@@ -24,7 +24,7 @@ import (
 	"log"
 	"math/rand"
 
-	"github.com/VoltDB/voltdb-client-go/voltdbclient"
+	"github.com/igungor/voltdb-client-go/voltdbclient"
 )
 
 func main() {

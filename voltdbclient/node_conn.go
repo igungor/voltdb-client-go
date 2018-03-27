@@ -27,7 +27,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/VoltDB/voltdb-client-go/wire"
+	"github.com/igungor/voltdb-client-go/wire"
 )
 
 // start back pressure when this many bytes are queued for write
@@ -279,7 +279,7 @@ func (nc *nodeConn) loop(writer io.Writer, piCh <-chan *procedureInvocation, res
 			for _, req := range requests {
 				if time.Now().After(req.submitted.Add(req.timeout)) {
 					queuedBytes -= req.numBytes
-					nc.handleAsyncTimeout(req)
+					nc.handleTimeout(req)
 					delete(requests, req.handle)
 				}
 			}
@@ -348,9 +348,15 @@ func (nc *nodeConn) handleAsyncResponse(handle int64, r io.Reader, req *networkR
 	}
 }
 
-func (nc *nodeConn) handleAsyncTimeout(req *networkRequest) {
+func (nc *nodeConn) handleTimeout(req *networkRequest) {
 	err := errors.New("timeout")
 	verr := VoltError{voltResponse: emptyVoltResponseInfo(), error: err}
+	if req.isSync() {
+		respCh := req.getChan()
+		respCh <- verr
+	} else {
+		req.arc.ConsumeError(verr)
+	}
 	req.arc.ConsumeError(verr)
 }
 
