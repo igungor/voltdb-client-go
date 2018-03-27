@@ -357,7 +357,6 @@ func (nc *nodeConn) handleTimeout(req *networkRequest) {
 	} else {
 		req.arc.ConsumeError(verr)
 	}
-	req.arc.ConsumeError(verr)
 }
 
 func (nc *nodeConn) sendPing(writer io.Writer) {
